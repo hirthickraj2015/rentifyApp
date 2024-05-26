@@ -91,15 +91,15 @@ const Upload = () => {
     }
   };
 
-  const fetchProducts = async () => {
+  const fetchProducts = useCallback(async () => {
     try {
-      const userID = user?.userDetails?.userID || "";
-      const response = await axios.get(`http://localhost:4000/products/user/${userID}`);
+      const response = await axios.get('http://localhost:4000/products');
       setProducts(response.data);
     } catch (error) {
-      console.error("Error fetching products:", error);
+      console.error('Error fetching products:', error);
     }
-  };
+    setLoading(false);
+  }, []); 
 
   useEffect(() => {
     fetchProducts();
