@@ -1,0 +1,94 @@
+/* Home.css */
+.search-results {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 16px;
+  }
+.background-filter {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../assets/Home_BG.gif'); /* Ensure the correct path to your GIF */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    filter: brightness(0.8) blur(4px); /* Adjust the brightness and blur intensity as needed */
+    -webkit-backdrop-filter: blur(4px); /* Add support for webkit browsers */
+    backdrop-filter: blur(4px); /* Standard backdrop filter */
+    z-index: -1; /* Move the background behind the content */
+}
+
+.home-background {
+    position: relative; /* Ensure proper positioning of child elements */
+    height: 100vh; /* Adjust as needed */
+    width: 100%; /* Adjust as needed */
+    overflow: hidden; /* Hide overflowing content */
+}
+
+/* Brand Name and Slogan */
+.brand-container {
+    text-align: center;
+    margin-top: 15%; /* Adjust margin as needed */
+     /* Slight diagonal rotation */
+    transition: transform 0.3s ease-in-out; /* Smooth transition for hover effect */
+}
+
+.brand-name {
+    font-size: 5rem; /* Adjust font size as needed */
+    font-weight: bold;
+    color: #344C64; /* White color for visibility */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Shadow for better readability */
+    margin-bottom: 0;
+    
+}
+
+.slogan {
+    font-size: 1.5rem; /* Adjust font size as needed */
+    color: #028391; /* White color for visibility */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Shadow for better readability */
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Hover effect */
+.brand-container:hover {
+    transform: scale(1.1) rotate(-5deg); /* Zoom out slightly and keep the diagonal rotation */
+}
+
+/* SearchBar */
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px; 
+
+}
+
+.search-input {
+    width: 25%; 
+    padding: 10px; 
+    border: 2px solid #ccc;
+    border-radius: 7px;
+    outline: none;
+}
+
+.search-button {
+    background-color: #007bff; 
+    color: white;
+    padding: 10px 20px; 
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-left: 10px; 
+}
+
+.filter-dropdown {
+    padding: 10px 1px; 
+    border-radius: 7px;
+    cursor: pointer;
+    margin-left: 10px; 
+    outline: none;
+}

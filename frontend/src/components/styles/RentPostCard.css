@@ -1,0 +1,142 @@
+/* styles/RentPostCard.css */
+.rent-post-card {
+  border: 1px solid #ddd;
+  padding: 16px;
+  margin: 8px 0;
+  border-radius: 8px;
+  background-color: #fff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.rent-post-card .icons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.rent-post-card .icon-button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: rgba(255, 192, 203, 0.3); /* transparent pink */
+  transition: background-color 0.3s;
+}
+
+.rent-post-card .icon-button.active {
+  background-color: #FF69B4; /* cute red */
+}
+
+.rent-post-card .icon-button .icon {
+  width: 20px;
+  height: 20px;
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.popup-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.popup-content .interested-button {
+  background-color: #d8b4fe; /* light purple */
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top:20px;
+  height:45px
+}
+
+.popup-content .interested-button.active-interested {
+  background-color: #081A51; /* dark purple */
+  color: #fff; /* Ensure text is visible on dark background */
+}
+
+.popup-content .close-button {
+  background-color: #ff0000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.popup-content .close-button:hover {
+  background-color: #e60000;
+}
+
+.blurred {
+  color: transparent;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it appears above other content */
+}
+
+.popup-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.login-prompt {
+  max-width: 400px; /* Adjust the width as needed */
+}
+
+.login-content {
+  text-align: center;
+  padding: 20px;
+}
+
+.close-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #ff0000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

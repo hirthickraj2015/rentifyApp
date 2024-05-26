@@ -1,0 +1,37 @@
+/* styles/Accounts.css */
+.account-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .account-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .user-details {
+    line-height: 1.6;
+  }
+  
+  .user-details p {
+    margin: 10px 0;
+    font-size: 1.1rem;
+    color: #555;
+  }
+  
+  .user-details strong {
+    color: #000;
+  }
+  
+  .no-user {
+    text-align: center;
+    color: #e74c3c;
+    font-size: 1.2rem;
+  }
+  
