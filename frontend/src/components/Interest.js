@@ -12,7 +12,7 @@ function Interest() {
     if (isLoggedIn) {
       fetchInterestList();
     }
-  }, [isLoggedIn]);
+  }, [isLoggedIn,fetchInterestList]);
 
   const fetchInterestList = async () => {
     try {
