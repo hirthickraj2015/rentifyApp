@@ -46,6 +46,7 @@ function Search() {
     fetchData();
   }, [initialLocation, initialType, searchQuery]);
 
+  // eslint-disable-next-line no-unused-vars
   const handleSearchInputChange = (event) => {
     const inputValue = event.target.value;
     setSearchQuery(inputValue);
