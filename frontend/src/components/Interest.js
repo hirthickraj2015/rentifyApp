@@ -11,7 +11,7 @@ function Interest() {
   const fetchInterestList = useCallback(async () => {
     try {
       setLoading(true);
-      const response = await axios.get(`http://localhost:4000/interest/${user?.userDetails?.userID || ''}`);
+      const response = await axios.get(`/interest/${user?.userDetails?.userID || ''}`);
       setInterests(response.data);
       setLoading(false);
     } catch (error) {
@@ -31,7 +31,7 @@ function Interest() {
       try {
         const productDetailsData = await Promise.all(
           interests.map(async (interest) => {
-            const response = await axios.get(`http://localhost:4000/products/${interest.productID}`);
+            const response = await axios.get(`/products/${interest.productID}`);
             return { productID: interest.productID, ...response.data };
           })
         );
@@ -52,7 +52,7 @@ function Interest() {
 
   const handleRemoveInterest = async (productID) => {
     try {
-      await axios.post('http://localhost:4000/deleteInterest', { userID: user?.userDetails?.userID || '', productID: productID });
+      await axios.post('/deleteInterest', { userID: user?.userDetails?.userID || '', productID: productID });
       setInterests(interests.filter(item => item.productID !== productID));
     } catch (error) {
       console.error('Error removing interest:', error);

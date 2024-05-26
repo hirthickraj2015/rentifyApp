@@ -80,7 +80,7 @@ const Upload = () => {
         return;
       }
       const response = await axios.post(
-        "http://localhost:4000/addProduct",
+        "/addProduct",
         newProduct
       );
       console.log("Product added:", response.data);
@@ -94,7 +94,7 @@ const Upload = () => {
   const fetchProducts = useCallback(async () => {
     try {
       const userID = user?.userDetails?.userID || '';
-      const response = await axios.get(`http://localhost:4000/products/user/${userID}`);
+      const response = await axios.get(`/products/user/${userID}`);
       setProducts(response.data);
     } catch (error) {
       console.error('Error fetching products:', error);
@@ -115,7 +115,7 @@ const Upload = () => {
     try {
       // Send request to update product
       const response = await axios.post(
-        "http://localhost:4000/updateProduct",
+        "/updateProduct",
         editingProduct
       );
       console.log("Product updated:", response.data);
@@ -128,7 +128,7 @@ const Upload = () => {
 
   const handleDeleteProduct = async (productID) => {
     try {
-      await axios.post("http://localhost:4000/deleteProduct", { productID });
+      await axios.post("/deleteProduct", { productID });
       console.log("Product deleted");
       fetchProducts(); // Automatically fetch products after deleting
     } catch (error) {

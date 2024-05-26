@@ -33,7 +33,7 @@ function Search() {
           searchQuery: searchQuery || '',
         };
         const response = await axios.post(
-          'http://localhost:4000/products',
+          '/products',
           requestBody
         );
         setResults(response.data);
@@ -61,7 +61,7 @@ function Search() {
         searchQuery: searchQuery || '',
       };
       const response = await axios.post(
-        'http://localhost:4000/products',
+        '/products',
         requestBody
       );
       setResults(response.data);

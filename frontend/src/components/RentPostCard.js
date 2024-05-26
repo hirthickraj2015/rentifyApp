@@ -24,9 +24,9 @@ const RentPostCard = ({ post }) => {
         userID: isLoggedIn ? user.userDetails.userID : null,
       };
 
-      await axios.post("http://localhost:4000/updateLike", requestBody);
+      await axios.post("/updateLike", requestBody);
 
-      const response = await axios.get(`http://localhost:4000/getLikeCount?productID=${post.productID}`);
+      const response = await axios.get(`/getLikeCount?productID=${post.productID}`);
       setLikes(response.data.likes);
     } catch (error) {
       console.error("Error updating like:", error);
@@ -63,7 +63,7 @@ const RentPostCard = ({ post }) => {
         productID: post.productID,
       };
 
-      await axios.post("http://localhost:4000/sendEmail", requestBody);
+      await axios.post("/sendEmail", requestBody);
     } catch (error) {
       console.error("Error sending interest:", error);
     }
