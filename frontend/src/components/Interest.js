@@ -7,7 +7,7 @@ function Interest() {
   const [interests, setInterests] = useState([]);
   const [loading, setLoading] = useState(false);
   const [productDetails, setProductDetails] = useState({});
-
+//  // eslint-disable-next-line no-unused-vars
   useEffect(() => {
     if (isLoggedIn) {
       fetchInterestList();
