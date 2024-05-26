@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
-import axios from "axios";
-import RentPostCard from "./RentPostCard";
-import "./styles/Search.css";
+import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import axios from 'axios';
+import RentPostCard from './RentPostCard';
+import './styles/Search.css';
 const PAGE_SIZE = 16;
+
 // Custom hook to extract query parameters
 const useQuery = () => {
   const location = useLocation();
@@ -12,32 +13,32 @@ const useQuery = () => {
 
 function Search() {
   const query = useQuery();
-  const [location, setLocation] = useState("");
-  const [type, setType] = useState("all");
+  const [location, setLocation] = useState('');
+  const [type, setType] = useState('all');
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
 
-  const initialLocation = query.get("location");
-  const initialType = query.get("type");
+  const initialLocation = query.get('location');
+  const initialType = query.get('type');
 
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
       try {
         const requestBody = {
-          location: initialLocation || "",
-          type: initialType || "all",
-          searchQuery: searchQuery || "",
+          location: initialLocation || '',
+          type: initialType || 'all',
+          searchQuery: searchQuery || '',
         };
         const response = await axios.post(
-          "http://localhost:4000/products",
+          'http://localhost:4000/products',
           requestBody
         );
         setResults(response.data);
       } catch (error) {
-        console.error("Error fetching search results:", error);
+        console.error('Error fetching search results:', error);
       }
       setLoading(false);
     };
@@ -54,17 +55,17 @@ function Search() {
     try {
       setLoading(true);
       const requestBody = {
-        location: location || "",
-        type: type || "all",
-        searchQuery: searchQuery || "",
+        location: location || '',
+        type: type || 'all',
+        searchQuery: searchQuery || '',
       };
       const response = await axios.post(
-        "http://localhost:4000/products",
+        'http://localhost:4000/products',
         requestBody
       );
       setResults(response.data);
     } catch (error) {
-      console.error("Error fetching search results:", error);
+      console.error('Error fetching search results:', error);
     }
     setLoading(false);
   };
@@ -141,23 +142,15 @@ function Search() {
           Previous
         </button>
         <div className="page-numbers">
+          <span className={currentPage === 1 ? 'current-page' : ''}>Page {currentPage}</span>
           {currentPage > 1 && (
-            <span
-              className={currentPage === 1 ? "current-page" : ""}
-              onClick={() => handlePageChange(currentPage - 1)}
-            >
-              {currentPage - 1}
+            <span className={currentPage === currentPage - 1 ? 'current-page' : ''}>
+              Previous Page {currentPage - 1}
             </span>
           )}
-          <span className="current-page">{currentPage}</span>
-          {endIndex < results.length && (
-            <span
-              className={currentPage === results.length ? "current-page" : ""}
-              onClick={() => handlePageChange(currentPage + 1)}
-            >
-              {currentPage + 1}
-            </span>
-          )}
+          <span className={currentPage === currentPage + 1 ? 'current-page' : ''}>
+            Next Page {currentPage + 1}
+          </span>
         </div>
         <button
           disabled={endIndex >= results.length}

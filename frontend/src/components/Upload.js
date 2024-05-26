@@ -103,7 +103,7 @@ const Upload = () => {
 
   useEffect(() => {
     fetchProducts();
-  }, []);
+  }, [fetchProducts]);
 
   const handleEditProduct = (product) => {
     setEditingProduct(product); // Set the product being edited
