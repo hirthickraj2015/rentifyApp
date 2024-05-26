@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
 import { useAuth } from './AuthContext';
 
@@ -7,10 +7,8 @@ function Interest() {
   const [interests, setInterests] = useState([]);
   const [loading, setLoading] = useState(false);
   const [productDetails, setProductDetails] = useState({});
-//  // eslint-disable-next-line no-unused-vars
-  
 
-  const fetchInterestList = async () => {
+  const fetchInterestList = useCallback(async () => {
     try {
       setLoading(true);
       const response = await axios.get(`http://localhost:4000/interest/${user.userDetails.userID}`);
@@ -20,12 +18,13 @@ function Interest() {
       console.error('Error fetching interest list:', error);
       setLoading(false);
     }
-  };
+  }, [user.userDetails.userID]);
+
   useEffect(() => {
     if (isLoggedIn) {
       fetchInterestList();
     }
-  }, [isLoggedIn,fetchInterestList]);
+  }, [isLoggedIn, fetchInterestList]);
 
   useEffect(() => {
     const fetchProductDetails = async () => {
