@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect ,useCallback } from "react";
 import axios from "axios";
 import { useAuth } from "./AuthContext"; // Import the useAuth hook
 
@@ -8,7 +8,7 @@ const Upload = () => {
   const [showModal, setShowModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
   const [editingProduct, setEditingProduct] = useState(null);
-   // Function to generate a random productID
+   
    const generateProductID = () => {
     return Math.random().toString(36).substr(2, 9); // Generates a random alphanumeric string
   };
@@ -98,7 +98,7 @@ const Upload = () => {
     } catch (error) {
       console.error('Error fetching products:', error);
     }
-    setLoading(false);
+    
   }, []); 
 
   useEffect(() => {
