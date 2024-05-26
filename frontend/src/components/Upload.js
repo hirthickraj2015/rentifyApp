@@ -93,13 +93,14 @@ const Upload = () => {
 
   const fetchProducts = useCallback(async () => {
     try {
-      const response = await axios.get('http://localhost:4000/products');
+      const userID = user?.userDetails?.userID || '';
+      const response = await axios.get(`http://localhost:4000/products/user/${userID}`);
       setProducts(response.data);
     } catch (error) {
       console.error('Error fetching products:', error);
     }
-    
-  }, []); 
+  }, [user?.userDetails?.userID]); 
+  
 
   useEffect(() => {
     fetchProducts();
