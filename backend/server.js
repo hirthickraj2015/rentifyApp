@@ -6,19 +6,26 @@ const allRoutes = require("./routers/allRoutes");
 const app = express();
 const dbConnect = require("./db/dbConnection");
 
-
+// Middleware
 app.use(express.json());
 app.use(cors({ origin: "*" }));
-app.use(express.static(path.join(__dirname, "public")));
-app.use(allRoutes);
-app.get("/*", (req, res) => {
-    res.sendFile(path.join(__dirname, "..", "public", "index.html"));
-  });
+app.use(express.static(path.join(__dirname, "..", "frontend", "public")));
 
-dbConnect();
-const PORT = process.env.PORT || 4000;
-app.listen(PORT, () => {
- console.log(`Server running on port ${PORT}`);
- 
+// Routes
+app.use(allRoutes);
+
+// Catch-all route to serve index.html
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "frontend", "public", "index.html"));
 });
 
+// Database connection
+dbConnect();
+
+// Port configuration
+const PORT = process.env.PORT || 4000;
+
+// Start server
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
