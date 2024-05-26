@@ -7,18 +7,18 @@ function Interest() {
   const [interests, setInterests] = useState([]);
   const [loading, setLoading] = useState(false);
   const [productDetails, setProductDetails] = useState({});
-
+  
   const fetchInterestList = useCallback(async () => {
     try {
       setLoading(true);
-      const response = await axios.get(`http://localhost:4000/interest/${user.userDetails.userID}`);
+      const response = await axios.get(`http://localhost:4000/interest/${user?.userDetails?.userID || ''}`);
       setInterests(response.data);
       setLoading(false);
     } catch (error) {
       console.error('Error fetching interest list:', error);
       setLoading(false);
     }
-  }, [user.userDetails.userID]);
+  }, [user?.userDetails?.userID]);
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -52,12 +52,20 @@ function Interest() {
 
   const handleRemoveInterest = async (productID) => {
     try {
-      await axios.post('http://localhost:4000/deleteInterest', { userID: user.userDetails.userID, productID: productID });
+      await axios.post('http://localhost:4000/deleteInterest', { userID: user?.userDetails?.userID || '', productID: productID });
       setInterests(interests.filter(item => item.productID !== productID));
     } catch (error) {
       console.error('Error removing interest:', error);
     }
   };
+
+  if (!isLoggedIn) {
+    return (
+      <div className="container mx-auto p-4">
+        <p>Please log in to view your interests.</p>
+      </div>
+    );
+  }
 
   return (
     <div className="container mx-auto p-4">
