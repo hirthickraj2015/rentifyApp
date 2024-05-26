@@ -8,11 +8,7 @@ function Interest() {
   const [loading, setLoading] = useState(false);
   const [productDetails, setProductDetails] = useState({});
 //  // eslint-disable-next-line no-unused-vars
-  useEffect(() => {
-    if (isLoggedIn) {
-      fetchInterestList();
-    }
-  }, [isLoggedIn,fetchInterestList]);
+  
 
   const fetchInterestList = async () => {
     try {
@@ -25,6 +21,11 @@ function Interest() {
       setLoading(false);
     }
   };
+  useEffect(() => {
+    if (isLoggedIn) {
+      fetchInterestList();
+    }
+  }, [isLoggedIn,fetchInterestList]);
 
   useEffect(() => {
     const fetchProductDetails = async () => {
