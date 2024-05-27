@@ -74,11 +74,11 @@ const App = () => {
   return (
     <AuthProvider>
       <Router>
-        <div className="flex">
+        <div className="flex h-screen">
           <div
             className={`${
               open ? "w-72" : "w-20 "
-            } bg-dark-purple min-h-screen p-5 pt-8 relative duration-300`}
+            } bg-dark-purple p-5 pt-8 relative duration-300`}
           >
             <img
               src={require('./assets/control.png')}
@@ -101,16 +101,18 @@ const App = () => {
             </div>
             <SidebarMenu />
           </div>
-          <div className="h-screen flex-1 p-0">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/search" element={<Search />} />
-              <Route path="/accounts" element={<Accounts />} />
-              <Route path="/interest" element={<Interest />} />
-              <Route path="/upload" element={<Upload />} />
-              <Route path="/login" element={<Login />} /> 
-              <Route path='/register' element={<Register />} />
-            </Routes>
+          <div className="flex-1 overflow-y-auto p-0">
+            <div className="h-full">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/search" element={<Search />} />
+                <Route path="/accounts" element={<Accounts />} />
+                <Route path="/interest" element={<Interest />} />
+                <Route path="/upload" element={<Upload />} />
+                <Route path="/login" element={<Login />} /> 
+                <Route path='/register' element={<Register />} />
+              </Routes>
+            </div>
           </div>
         </div>
       </Router>
