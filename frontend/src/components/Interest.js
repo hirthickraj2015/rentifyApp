@@ -7,7 +7,7 @@ function Interest() {
   const [interests, setInterests] = useState([]);
   const [loading, setLoading] = useState(false);
   const [productDetails, setProductDetails] = useState({});
-  
+
   const fetchInterestList = useCallback(async () => {
     try {
       setLoading(true);
@@ -76,7 +76,7 @@ function Interest() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {interests.map((interest) => (
             <div key={interest._id} className="bg-white rounded-lg shadow-md p-4">
-              {productDetails[interest.productID] && (
+              {productDetails[interest.productID] && productDetails[interest.productID][0] && (
                 <div className="mt-4">
                   <p className="text-lg font-bold">{productDetails[interest.productID][0].name}</p>
                   <p>Type: {productDetails[interest.productID][0].type}</p>
