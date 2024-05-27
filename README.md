@@ -4,7 +4,7 @@ Rentify is a brokerage company aiming to simplify the process of finding rental 
 An Full Stack Application to rent house land and many more. 
 ## Deployment Link
 
-The Rentify application is deployed on [Render](https://rentifyapp-l4rl.onrender.com/).
+### The Rentify application is deployed on [Render](https://rentifyapp-18y1.onrender.com).
 
 ## Tech Stack
 
