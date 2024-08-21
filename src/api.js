@@ -1,0 +1,3 @@
+// rentifyApp
+
+export function main() {}
